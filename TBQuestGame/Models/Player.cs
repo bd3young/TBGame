@@ -23,22 +23,8 @@ namespace TBQuestGame.Models
 
 		protected int _lives;
 		protected int _health;
-
-
-
-
 		private int _exp;
 		private JobTitleName _jobTitle;
-
-
-
-
-
-
-
-
-
-
 
 		#endregion
 

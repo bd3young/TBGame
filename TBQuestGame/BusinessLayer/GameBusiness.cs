@@ -13,6 +13,7 @@ namespace TBQuestGame.BusinessLayer
 	{
 		GameSessionViewModel _gameSessionViewModel;
 		Player _player = new Player();
+        List<string> _messages;
 
 		public GameBusiness()
 		{
@@ -22,7 +23,7 @@ namespace TBQuestGame.BusinessLayer
 
 		private void InstantiateAndShowView()
 		{
-			_gameSessionViewModel = new GameSessionViewModel(_player);
+			_gameSessionViewModel = new GameSessionViewModel(_player, _messages);
 			GameSessionView gameSessionView = new GameSessionView(_gameSessionViewModel);
 
 			gameSessionView.DataContext = _gameSessionViewModel;
@@ -33,6 +34,7 @@ namespace TBQuestGame.BusinessLayer
 		private void InitializeDataSet()
 		{
 			_player = GameData.PlayerData();
+            _messages = GameData.InitialMessages();
 		}
 	}
 }

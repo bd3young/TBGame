@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TBQuestGame.Models;
+using System.Collections.ObjectModel;
 
 namespace TBQuestGame.PresentationLayer
 {
@@ -13,33 +14,42 @@ namespace TBQuestGame.PresentationLayer
 		#region FIELDS
 
 		private Player _player;
+        private List<string> _messages;
 
-		#endregion
+        #endregion
 
-		#region PROPERTIES
+        #region PROPERTIES
 
-		public Player Player
+        public Player Player
 		{
 			get { return _player; }
 			set { _player = value; }
 		}
 
-		#endregion
+        public string MessageDisplay
+        {
+            get { return string.Join("\n\n", _messages); }
+        }
 
-		#region METHODS
+        #endregion
 
-		#endregion
+        #region METHODS
 
-		#region CONSTRUCTORS
+        #endregion
 
-		public GameSessionViewModel()
+        #region CONSTRUCTORS
+
+        public GameSessionViewModel()
 		{
 
 		}
 
-		public GameSessionViewModel(Player player)
+		public GameSessionViewModel(
+            Player player,
+            List<string> initialMessages)
 		{
 			_player = player;
+            _messages = initialMessages;
 		}
 
 		#endregion
